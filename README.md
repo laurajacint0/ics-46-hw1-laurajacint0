@@ -3,12 +3,10 @@
 For Homework 1, we will be programming class string.
 
 **Links**
-[Instructions](tbd)
-[Environment Setup](https://github.com/klefstad-teaching/ICS-45C-HW0)
+- [Instructions](tbd)
+- [HW0 Environment Setup](https://github.com/klefstad-teaching/ICS-45C-HW0)
 
-## Pushing changes to git
-
-**IMPORTANT**
+## **IMPORTANT**
 For all the GTests to work and for the autograder to work as intended you must add a `src` directory and move the `main.cpp` file into it
 
 ```bash
