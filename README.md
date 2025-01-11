@@ -6,12 +6,15 @@ For Homework 1, we will be programming class string.
 - [Instructions](https://sites.google.com/view/ics-46-data-structures/homework-1)
 - [HW0 Environment Setup](https://github.com/klefstad-teaching/ICS-45C-HW0)
 
-## **IMPORTANT**
-For all the GTests to work and for the autograder to work as intended you must add a `src` directory and move the `main.cpp` file into it
+## Local GTests
+To install GTests on your hub instances and enable local test development, run:
+```sudo apt-get install -y libgtest-dev libgmock-dev```
 
+For the autograder to work, a `src` directory is required above your submitted files:
 ```bash
 └── src
     ├── main.cpp
+    ├── rest of submission
 ```
 
 ## Submit to GradeScope
