@@ -3,7 +3,7 @@
 For Homework 1, we will be programming class string.
 
 **Links**
-- [Instructions](tbd)
+- [Instructions](https://sites.google.com/view/ics-46-data-structures/homework-1)
 - [HW0 Environment Setup](https://github.com/klefstad-teaching/ICS-45C-HW0)
 
 ## **IMPORTANT**
