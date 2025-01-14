@@ -10,11 +10,19 @@ For Homework 1, we will be programming class string.
 To install GTests on your hub instances and enable local test development, run:
 ```sudo apt-get install -y libgtest-dev libgmock-dev```
 
-For the autograder to work, a `src` directory is required above your submitted files:
+Each homework submission will follow the same general pattern and should always have the
+following folder structure:
+
 ```bash
+.
+├── CMakeLists.txt
+├── gtest
+│   ├── gtestmain.cpp
+│   └── <CLASSNAME>_gtests.cpp
 └── src
     ├── main.cpp
-    ├── rest of submission
+    ├── <CLASSNAME>.cpp
+    └── <CLASSNAME>.h
 ```
 
 ## Submit to GradeScope
