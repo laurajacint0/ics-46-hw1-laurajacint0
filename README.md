@@ -10,6 +10,8 @@ For Homework 1, we will be programming class string.
 To install GTests on your hub instances and enable local test development, run:
 ```sudo apt-get install -y libgtest-dev libgmock-dev```
 
+## Submit to GradeScope
+
 Each homework submission will follow the same general pattern and should always have the
 following folder structure:
 
@@ -17,15 +19,12 @@ following folder structure:
 .
 ├── CMakeLists.txt
 ├── gtest
-│   ├── gtestmain.cpp
 │   └── <CLASSNAME>_gtests.cpp
 └── src
     ├── main.cpp
     ├── <CLASSNAME>.cpp
     └── <CLASSNAME>.h
 ```
-
-## Submit to GradeScope
 
 All submissions are done on [GradeScope](https://www.gradescope.com/).
 
