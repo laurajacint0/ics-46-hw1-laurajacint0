@@ -5,10 +5,10 @@
 // https://github.com/google/googletest/blob/main/docs/primer.md
 // -------------------------------------------------------------------------- //
 
-// Include all of your *.h files you want to unit test:
-
-
 #include <gtest/gtest.h>
+
+// Include all of your *.h files you want to unit test:
+#include "String.h"
 
 namespace {
 
@@ -16,7 +16,6 @@ TEST(Hello, World) {
   EXPECT_TRUE(true);
 }
 
-// ADD YOUR TESTS HERE:
+// ADD YOUR TESTS HERE
 
-
-} // anonymous namespace
+}
