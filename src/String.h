@@ -79,5 +79,5 @@ private:
     //Do NOT add any data members - use the null terminator
 };
 
-ostream &operator<<(std::ostream &out, String s);
-istream &operator>>(std::istream &in, String &s);
+ostream &operator<<(ostream &out, String s);
+istream &operator>>(istream &in, String &s);

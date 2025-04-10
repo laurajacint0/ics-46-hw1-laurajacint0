@@ -16,19 +16,32 @@ String::String(String && s){
     s.buf = nullptr;
 }
 
-    //assignment to this string by moving from string s
+ //assignment to this string by moving from string s
     String &String::operator = (String &&s){
-        
+        if (this != &s) {
+            Alloc::delete_char_array(buf);
+            buf = s.buf;
+            s.buf = nullptr;
+        }
+        return *this;
     }
 
     //assignment operator from one string, s, to this string
     String &String::operator = (const String & s){
-    
+        if (this != &s) {
+            Alloc::delete_char_array(buf);
+            buf = strdup(s.buf);
+        }
+        return *this;
     }
 
     //allow indexing this string with notation s[i]
     char &String::operator[] (int index){
-    
+        if (!in_bounds(index)) {
+            cerr << "ERROR: Index Out Of Bounds" << endl;
+            return buf[0];
+        }
+        return buf[index];
     }
 
     //returns the logical length of this string(# of chars up to '\0')
@@ -38,42 +51,52 @@ String::String(String && s){
 
     //returns a reversal of this string, does not modify this string
     String String::reverse(){
-
+        size_t len = size();
+        char *reversed = Alloc::new_char_array(len + 1);
+        reverse_cpy(reversed, buf);
+        return String(reversed);
     }
 
     //returns index into this string for the fist occurance of c
     int String::indexOf(const char c){
+        char *pos = strchr(buf, c);
+        return pos ? pos - buf : -1;
     }
 
     //returns index into this string for first occurance of s
     int String::indexOf(const String s){
-
+        char *pos = strstr(buf, s.buf);
+        return pos ? pos - buf : -1;
     }
 
     //relational operators for comparing this strings to another string
     bool String::operator == (const String &s){
-
+        return strcmp(buf, s.buf) == 0;
     }
 
     bool String::operator != (const String &s){
-
+        return strcmp(buf, s.buf) != 0;
     }
     bool String::operator > (const String &s){
-
+        return strcmp(buf, s.buf) > 0;
     }
     bool String::operator < (const String &s){
-
+        return strcmp(buf, s.buf) < 0;
     }
     bool String::operator <= (const String &s){
-
+        return strcmp(buf, s.buf) <= 0;
     }
     bool String::operator >= (const String &s){
-
+        return strcmp(buf, s.buf) >= 0;
     }
 
     //concatenate this and s to form a return string
     String String::operator+(const String &s){
-
+        size_t len = size() + s.size();
+        char *concatenated = Alloc::new_char_array(len + 1);
+        strcpy(concatenated, buf);
+        strcat(concatenated, s.buf);
+        return String(concatenated);
     }
 
     //concatenate s onto the end of this string
@@ -83,13 +106,13 @@ String::String(String && s){
     };
 
     //print this string, hint: use operator << to send buf to out
-    void String::print(std::ostream &out){
+    void String::print(ostream &out){
         out << buf;
     }
 
     //read next word into this string
     //hint: use operator >> to read from in into buf
-    void String::read(std::istream &in){
+    void String::read(istream &in){
         char temp[1024];
         in >> temp;
         *this = String(temp);
@@ -272,11 +295,11 @@ const char *String::strstr(const char *haystack, const char *needle){
     return nullptr;
 }
 
-ostream &operator<<(std::ostream &out, String s){
+ostream &operator<<(stostream &out, String s){
     s.print(out);
     return out;
 }
-istream &operator>>(std::istream &in, String &s){
+istream &operator>>(istream &in, String &s){
     s.read(in);
     return in;
 }
