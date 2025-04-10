@@ -46,7 +46,7 @@ String::String(String && s){
     }
 
     //returns the logical length of this string(# of chars up to '\0')
-    size_t String::size(){
+    size_t String::size() const{
         return strlen(buf);
     }
 

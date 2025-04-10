@@ -24,7 +24,7 @@ public:
     char &operator[] (int index);
 
     //returns the logical length of this string(# of chars up to '\0')
-    size_t size();
+    size_t size() const;
 
     //returns a reversal of this string, does not modify this string
     String reverse();
@@ -44,10 +44,10 @@ public:
     bool operator >= (const String &s);
 
     //concatenate this and s to form a return string
-    String operator +(const String &s);
+    String operator+(const String &s);
 
     //concatenate s onto the end of this string
-    String & operator += (const String s);
+    String &operator+=(const String s);
 
     //print this string, hint: use operator << to send buf to out
     void print(ostream &out);
