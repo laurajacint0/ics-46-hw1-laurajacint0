@@ -1,5 +1,6 @@
 #include "String.h"
 #include "Alloc.h"
+using namespace std;
 
 String::String(const char *s){
     buf = strdup(s);
@@ -301,7 +302,7 @@ const char *String::strstr(const char *haystack, const char *needle){
     return nullptr;
 }
 
-ostream &operator<<(stostream &out, String s){
+ostream &operator<<(ostream &out, String s){
     s.print(out);
     return out;
 }
