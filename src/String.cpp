@@ -1,7 +1,7 @@
 #include "String.h"
 #include "Alloc.h"
 
-String(const char *s = ""){
+String::String(const char *s){
     buf = strdup(s);
 }
 
@@ -59,14 +59,19 @@ String::String(String && s){
 
     //returns index into this string for the fist occurance of c
     int String::indexOf(const char c){
-        char *pos = strchr(buf, c);
-        return pos ? pos - buf : -1;
+        for (int i = 0; i < len; i++) {
+        if (data[i] == c) {
+            return i;
+            }
+        }
+    return -1;
     }
 
     //returns index into this string for first occurance of s
     int String::indexOf(const String s){
-        char *pos = strstr(buf, s.buf);
-        return pos ? pos - buf : -1;
+        if (char *pos = strstr(buf, s.buf))
+            return pos - buf;
+        return -1;
     }
 
     //relational operators for comparing this strings to another string
@@ -272,6 +277,7 @@ char *String::strstr(char *haystack, const char *needle){
     }
     return nullptr;
 }
+
 const char *String::strstr(const char *haystack, const char *needle){
     if (*needle == '\0') {
         return haystack;
