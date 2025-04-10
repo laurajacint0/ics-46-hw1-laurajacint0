@@ -110,7 +110,7 @@ String::String(String && s){
     String &String::operator+= (const String s){
         *this = *this + s;
         return *this;
-    };
+    }
 
     //print this string, hint: use operator << to send buf to out
     void String::print(ostream &out){
