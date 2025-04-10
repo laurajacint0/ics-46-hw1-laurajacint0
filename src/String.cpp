@@ -60,8 +60,9 @@ String::String(String && s){
 
     //returns index into this string for the fist occurance of c
     int String::indexOf(const char c){
+        int len = size();
         for (int i = 0; i < len; i++) {
-        if (data[i] == c) {
+        if (buf[i] == c) {
             return i;
             }
         }
